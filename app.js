@@ -1,4 +1,4 @@
-let topTextInput, bottomTextInput, imageInput, generateBtn, canvas, context; //no need to show this as global
+let canvas, context; //no need to show this as global
 
 
 const generateMeme = function (img, topText, bottomText) {
@@ -32,10 +32,10 @@ const generateMeme = function (img, topText, bottomText) {
 }
 
 function init() {
-    topTextInput = document.querySelector('#top-text');
-    bottomTextInput = document.querySelector('#bottom-text');
-    imageInput = document.getElementById('image-input');
-    generateBtn = document.querySelector('#generate-btn');
+    let topTextInput = document.querySelector('#top-text');
+    let bottomTextInput = document.querySelector('#bottom-text');
+    let imageInput = document.getElementById('image-input');
+    let generateBtn = document.querySelector('#generate-btn');
     let deleteBtn = document.querySelector('#delete-btn')
     canvas = document.querySelector('#meme-canvas');
     
