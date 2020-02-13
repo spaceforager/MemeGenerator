@@ -50,8 +50,13 @@ function init() {
         reader.onload = () => {
             const img = new Image;
             img.src = reader.result;
-            generateMeme(img, topTextInput.value, bottomTextInput.value);
             
+            try {
+            generateMeme(img, topTextInput.value, bottomTextInput.value);
+            } catch (err) {
+                console.log("Error whie loading:", e);
+
+            }
             
         };
         reader.readAsDataURL(imageInput.files[0]);
@@ -65,7 +70,4 @@ function init() {
 
 init();
 
-// Good practice is to use try and catch blocks. 
-
-// try and catch block should be in ln 53
 
