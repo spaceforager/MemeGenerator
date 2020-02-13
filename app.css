@@ -1,0 +1,28 @@
+.pink {
+    background-color: pink;
+    border: 1px solid purple;
+}
+
+body {
+    background-color: powderblue;
+}
+
+.container {
+    height: 100vh;
+}
+
+h1 {
+    text-align: center;
+}
+
+#meme-canvas {
+width: 100%;
+margin: 0;
+
+}
+
+.col-md-9.col-sm-6.pink {
+    padding: 0;
+        
+}
+

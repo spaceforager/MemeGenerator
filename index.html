@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Meme Generator</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="app.css">
+
+   
+</head>
+<body>
+    
+<div class="container">
+
+        <h1 class="text-center display-4">Meme Generator</h1>
+
+    <form>
+        <div class="row">
+            <div class="col-md-9 col-sm-6 pink">
+                <canvas id="meme-canvas"></canvas>
+            </div>
+            <div class="col-md-3 col-sm-6 pink">
+                <p>
+                    <textarea id="top-text"></textarea>    
+                </p>
+
+                <p>
+                    <textarea id="bottom-text"></textarea>
+                </p>
+
+                <p>
+                    <input type="file" id="image-input" accept="image/*">
+                </p>
+
+                <p>
+                    <button id="generate-btn">GENERATE!</button>
+                </p>
+
+                <p>
+                    <button id="delete-btn">DELETE</button>
+                </p>
+
+            </div>
+        </div>
+    </form>
+
+    </div>
+
+
+
+
+
+    
+    <script src="app.js"></script>
+</body>
+</html>
