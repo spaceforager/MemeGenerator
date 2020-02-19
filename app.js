@@ -36,28 +36,46 @@ function init() {
 	let deleteBtn = document.querySelector('#delete-btn');
 	canvas = document.querySelector('#meme-canvas');
 
+	const reader = new FileReader();
+	reader.onload = () => {
+		const img = new Image()
+		try {
+			// Don't let user upload none but jpeg - btw is this enough?
+			if (reader.result.startsWith('data:image/jpeg')) {
+				img.src = reader.result;
+			} else {
+				throw new Error('Wrong mimetype')
+			}
+			img.onload = () => {
+				generateMeme(img, topTextInput.value, bottomTextInput.value);
+			}
+		} catch(e) {
+			context.clearRect(0, 0, canvas.width, canvas.height);
+			imageInput.value = '';
+			alert('Nice try, how about some jpeg?')
+		} finally {
+			// for some reason we wanna log each file loading
+			console.log(new Date().toString());
+		}
+		
+		// other way how to catch errors is with built-in method ".onerror"
+		// img.onerror = () => {
+		// 	console.log('doesnt look like img')
+		// }
+
+	};
 	context = canvas.getContext('2d');
 
 	canvas.width = canvas.height = 0;
 
 	generateBtn.addEventListener('click', (e) => {
 		e.preventDefault();
-		const reader = new FileReader();
-		reader.onload = () => {
-			const img = new Image();
-			img.src = reader.result;
-
-			try {
-				generateMeme(img, topTextInput.value, bottomTextInput.value);
-			} catch (e) {
-				console.log('Error whie loading:', e);
-			}
-		};
 		reader.readAsDataURL(imageInput.files[0]);
 	});
 
-	deleteBtn.addEventListener('click', () => {
-		context.clearRect(0, 0, 0, 0);
+	deleteBtn.addEventListener('click', (e) => {
+		e.preventDefault()
+		context.clearRect(0, 0, canvas.width, canvas.height);
 	});
 }
 
