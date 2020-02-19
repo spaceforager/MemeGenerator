@@ -54,7 +54,8 @@ function init() {
 			imageInput.value = '';
 			alert('Nice try, how about some jpeg?')
 		} finally {
-			// for some reason we wanna log each file loading
+			// for some reason we wanna log each file loading 
+			// it is here just to demonstrate how 'finally' block works :)
 			console.log(new Date().toString());
 		}
 		
